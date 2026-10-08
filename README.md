@@ -43,11 +43,11 @@ Lalu buat `src/components/ui/<nama>.stories.tsx` dan tambahkan satu baris di kat
 
 ## Mengubah menu
 
-Edit `MENU` di `src/config/menu.ts`: tambah item `{ label, path, icon, component }` ke grup yang ada, atau buat grup baru. Buat halamannya di `src/pages/<nama>.tsx` (`export default`). Ikon dari `lucide-react`.
+Edit `MENU` di `src/config/menu.ts`: tambah item `{ label, path, icon, component }` ke grup yang ada, atau buat grup baru. Buat halamannya di `src/pages/<nama>.tsx` (`export default`). Ikon dari `lucide-react`. Langkah lengkap dan contoh prompt AI: [`docs/panduan.md`](docs/panduan.md).
 
 ## Mengubah tema
 
-Edit variabel oklch di `src/index.css` (`:root` dan `.dark`). Warna utama: biru `#2563eb` (`--primary`, `--ring`). Jangan menulis warna langsung di komponen; `npm run lint` akan menolaknya.
+Edit variabel oklch di `src/index.css` (`:root` dan `.dark`). Warna utama: biru `#2563eb` (`--primary`, `--ring`). Jangan menulis warna langsung di komponen; `npm run lint` akan menolaknya. Langkah lengkap (konversi hex ke oklch, cek kontras, warna semantik): [`docs/panduan.md`](docs/panduan.md).
 
 ## MCP (opsional)
 
