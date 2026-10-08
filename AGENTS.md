@@ -15,11 +15,12 @@ Komponen dasar (`@/components/ui/*`, berbasis Base UI: trigger memakai `render={
 - `Badge` (status/label kecil) · `Input` · `Label` (pasangkan dengan `htmlFor`)
 - `Select` (SelectTrigger/SelectValue/SelectContent/SelectItem) · `Dialog` (konfirmasi, form modal)
 - `Card` (Header/Title/Content/Footer) · `Table` (data tabular) · `Tabs` · `Chart` (ChartContainer + recharts; warna dari `var(--chart-1..5)`)
-- `Sidebar*` · `Breadcrumb*` · `Separator` · `Sheet` · `Tooltip` · `Skeleton` (dipakai AppShell; ditampilkan lewat story `blocks/AppShell`)
+- `Sidebar*` · `Breadcrumb*` · `Separator` · `Sheet` · `Tooltip` · `Skeleton` · `Avatar` (dipakai AppShell; ditampilkan lewat story `blocks/AppShell`)
 
 Blok (`@/blocks/*`):
 - `StatCard`: kartu angka ringkas (ikon `tone` + nilai + label + perubahan). `tone`: primary/warning/destructive/info/success.
 - `AppShell`: sidebar + breadcrumb + area konten, dibangun dari `MENU` di `src/config/menu.ts`.
+- `HeaderActions`: pencarian (Ctrl+K), pengganti tema terang/gelap (`useTheme` di `src/lib/use-theme.ts`), notifikasi, avatar. Dipakai di header AppShell.
 - `ListPage`: halaman daftar = judul + cari + tombol tambah + tabel. Isi `columns`, `rows`, `rowKey`, `searchText`.
 
 Belum terpasang (pasang dengan `npx shadcn@latest add`): toggle-group. Komponen `form` tidak tersedia di registry; susun dari Label + Input + Select.

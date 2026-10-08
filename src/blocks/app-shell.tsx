@@ -9,6 +9,7 @@ import {
   SidebarInset, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger,
 } from '@/components/ui/sidebar'
 import type { MenuGroup } from '@/config/menu'
+import { HeaderActions } from './header-actions'
 
 type AppShellProps = { title: string; menu: MenuGroup[]; children: ReactNode }
 
@@ -58,6 +59,7 @@ export function AppShell({ title, menu, children }: AppShellProps) {
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
+          <HeaderActions userName="Budi Santoso" hasNotification />
         </header>
         <main className="p-6">{children}</main>
       </SidebarInset>
