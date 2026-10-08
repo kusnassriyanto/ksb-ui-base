@@ -1,5 +1,6 @@
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Badge } from '@/components/ui/badge'
-import { ListPage, type Column } from '@/blocks/list-page'
+import { ListPage, type Column } from './list-page'
 
 type Pengguna = { id: string; nama: string; email: string; status: 'Aktif' | 'Nonaktif' }
 
@@ -19,18 +20,21 @@ const columns: Column<Pengguna>[] = [
   },
 ]
 
-export default function App() {
-  return (
-    <main className="mx-auto max-w-3xl p-6">
-      <ListPage
-        title="Pengguna"
-        columns={columns}
-        rows={data}
-        rowKey={(r) => r.id}
-        searchText={(r) => `${r.nama} ${r.email}`}
-        onCreate={() => {}}
-        createLabel="Tambah pengguna"
-      />
-    </main>
-  )
-}
+const meta = {
+  title: 'blocks/ListPage',
+  component: ListPage<Pengguna>,
+  args: {
+    title: 'Pengguna',
+    columns,
+    rows: data,
+    rowKey: (r) => r.id,
+    searchText: (r) => `${r.nama} ${r.email}`,
+    onCreate: () => {},
+    createLabel: 'Tambah pengguna',
+  },
+} satisfies Meta<typeof ListPage<Pengguna>>
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {}
+export const TanpaTombolTambah: Story = { args: { onCreate: undefined } }

@@ -1,32 +1,48 @@
-# React + TypeScript + Vite
+# test-ui
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Starter UI: React + Vite + TypeScript + Tailwind v4 + shadcn/ui (base-nova) + Storybook.
+Dirancang agar AI coding assistant menyusun komponen yang sudah ada, bukan mendesain dari nol.
 
-Currently, two official plugins are available:
+## Mulai
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev          # aplikasi
+npm run storybook    # katalog komponen di http://localhost:6010
+npm run lint         # oxlint + pemeriksaan token tema
+npm run build
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Struktur
+
+```
+.storybook/              konfigurasi Storybook
+scripts/check-tokens.mjs larang warna hardcode di kode aplikasi
+src/components/ui/       komponen dasar shadcn + *.stories.tsx
+src/blocks/              blok halaman (komposisi komponen ui)
+src/lib/utils.ts         helper cn
+src/index.css            satu-satunya sumber token tema
+AGENTS.md  CLAUDE.md     aturan kerja untuk AI
+```
+
+## Menambah komponen shadcn
+
+```bash
+npx shadcn@latest add <nama>
+```
+
+Lalu buat `src/components/ui/<nama>.stories.tsx` dan tambahkan satu baris di katalog `AGENTS.md`. Jangan mengubah isi `src/components/ui/*` tanpa alasan desain.
+
+## Menambah blok
+
+1. Buat `src/blocks/<nama>.tsx` (komposisi komponen `ui`, hanya token tema).
+2. Buat `src/blocks/<nama>.stories.tsx` (title `blocks/<Nama>`).
+3. Tambahkan satu baris di bagian Blok pada `AGENTS.md`.
+
+## Mengubah tema
+
+Edit variabel oklch di `src/index.css` (`:root` dan `.dark`). Warna utama: biru `#2563eb` (`--primary`, `--ring`). Jangan menulis warna langsung di komponen; `npm run lint` akan menolaknya.
+
+## MCP (opsional)
+
+`.mcp.json` mendaftarkan MCP shadcn dan Storybook (aktif saat `npm run storybook` berjalan).
