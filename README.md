@@ -20,6 +20,8 @@ npm run build
 scripts/check-tokens.mjs larang warna hardcode di kode aplikasi
 src/components/ui/       komponen dasar shadcn + *.stories.tsx
 src/blocks/              blok halaman (komposisi komponen ui)
+src/config/menu.ts       definisi menu (sidebar, route, breadcrumb)
+src/pages/               satu file per menu
 src/lib/utils.ts         helper cn
 src/index.css            satu-satunya sumber token tema
 AGENTS.md  CLAUDE.md     aturan kerja untuk AI
@@ -38,6 +40,10 @@ Lalu buat `src/components/ui/<nama>.stories.tsx` dan tambahkan satu baris di kat
 1. Buat `src/blocks/<nama>.tsx` (komposisi komponen `ui`, hanya token tema).
 2. Buat `src/blocks/<nama>.stories.tsx` (title `blocks/<Nama>`).
 3. Tambahkan satu baris di bagian Blok pada `AGENTS.md`.
+
+## Mengubah menu
+
+Edit `MENU` di `src/config/menu.ts`: tambah item `{ label, path, icon, component }` ke grup yang ada, atau buat grup baru. Buat halamannya di `src/pages/<nama>.tsx` (`export default`). Ikon dari `lucide-react`.
 
 ## Mengubah tema
 

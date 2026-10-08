@@ -15,11 +15,16 @@ Komponen dasar (`@/components/ui/*`, berbasis Base UI: trigger memakai `render={
 - `Badge` (status/label kecil) · `Input` · `Label` (pasangkan dengan `htmlFor`)
 - `Select` (SelectTrigger/SelectValue/SelectContent/SelectItem) · `Dialog` (konfirmasi, form modal)
 - `Card` (Header/Title/Content/Footer) · `Table` (data tabular)
+- `Sidebar*` · `Breadcrumb*` · `Separator` · `Sheet` · `Tooltip` · `Skeleton` (dipakai AppShell; ditampilkan lewat story `blocks/AppShell`)
 
 Blok (`@/blocks/*`):
+- `AppShell`: sidebar + breadcrumb + area konten, dibangun dari `MENU` di `src/config/menu.ts`.
 - `ListPage`: halaman daftar = judul + cari + tombol tambah + tabel. Isi `columns`, `rows`, `rowKey`, `searchText`.
 
-Belum terpasang (pasang dengan `npx shadcn@latest add`): tabs, sidebar, breadcrumb, toggle-group. Komponen `form` tidak tersedia di registry; susun dari Label + Input + Select.
+Belum terpasang (pasang dengan `npx shadcn@latest add`): tabs, toggle-group. Komponen `form` tidak tersedia di registry; susun dari Label + Input + Select.
+
+## Menu
+Edit hanya `src/config/menu.ts` (`MENU`: group → item `{label, path, icon, component}`). Satu menu = satu file di `src/pages/` (`export default`). Sidebar, route, dan breadcrumb otomatis mengikuti `MENU`.
 
 ## Aturan gaya
 - Hanya token tema (`bg-primary`, `text-muted-foreground`, `border`, `rounded-lg`, ...). Dilarang hex, `bg-[...]`, dan warna palet (`bg-blue-500`). Dicek oleh `npm run lint`.
