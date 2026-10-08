@@ -14,22 +14,25 @@ Komponen dasar (`@/components/ui/*`, berbasis Base UI: trigger memakai `render={
 - `Button` (variant: default/outline/secondary/ghost/destructive/link; size: xs/sm/default/lg/icon)
 - `Badge` (status/label kecil) · `Input` · `Label` (pasangkan dengan `htmlFor`)
 - `Select` (SelectTrigger/SelectValue/SelectContent/SelectItem) · `Dialog` (konfirmasi, form modal)
-- `Card` (Header/Title/Content/Footer) · `Table` (data tabular)
+- `Card` (Header/Title/Content/Footer) · `Table` (data tabular) · `Tabs` · `Chart` (ChartContainer + recharts; warna dari `var(--chart-1..5)`)
 - `Sidebar*` · `Breadcrumb*` · `Separator` · `Sheet` · `Tooltip` · `Skeleton` (dipakai AppShell; ditampilkan lewat story `blocks/AppShell`)
 
 Blok (`@/blocks/*`):
+- `StatCard`: kartu angka ringkas (ikon `tone` + nilai + label + perubahan). `tone`: primary/warning/destructive/info/success.
 - `AppShell`: sidebar + breadcrumb + area konten, dibangun dari `MENU` di `src/config/menu.ts`.
 - `ListPage`: halaman daftar = judul + cari + tombol tambah + tabel. Isi `columns`, `rows`, `rowKey`, `searchText`.
 
-Belum terpasang (pasang dengan `npx shadcn@latest add`): tabs, toggle-group. Komponen `form` tidak tersedia di registry; susun dari Label + Input + Select.
+Belum terpasang (pasang dengan `npx shadcn@latest add`): toggle-group. Komponen `form` tidak tersedia di registry; susun dari Label + Input + Select.
 
 ## Menu
 Edit hanya `src/config/menu.ts` (`MENU`: group → item `{label, path, icon, component}`). Satu menu = satu file di `src/pages/` (`export default`). Sidebar, route, dan breadcrumb otomatis mengikuti `MENU`.
 
+Data simulasi ada di `src/mocks/`; halaman membacanya dari sana. Ganti dengan data API tanpa mengubah tampilan.
+
 ## Aturan gaya
 - Hanya token tema (`bg-primary`, `text-muted-foreground`, `border`, `rounded-lg`, ...). Dilarang hex, `bg-[...]`, dan warna palet (`bg-blue-500`). Dicek oleh `npm run lint`.
 - Token didefinisikan di `src/index.css` (`:root` dan `.dark`, format oklch). Ubah tema di sana, bukan di komponen. Warna utama = `--primary`, `--primary-foreground`, `--ring` di kedua blok; kontras teks tombol minimal 4.5:1.
-- Warna semantik baru (mis. `success`): tambah variabel di `:root` dan `.dark`, daftarkan `--color-success: var(--success)` di blok `@theme inline`, lalu pakai `bg-success`.
+- Warna semantik sudah ada: `primary`, `destructive`, `success`, `warning`, `info` (pakai `bg-success`, `text-warning/10`, dst). Warna baru: tambah variabel di `:root` dan `.dark`, daftarkan `--color-<nama>: var(--<nama>)` di blok `@theme inline`.
 - Jangan edit `src/components/ui/*` kecuali memang mengubah desain dasar.
 
 ## Perintah

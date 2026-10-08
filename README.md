@@ -22,6 +22,7 @@ src/components/ui/       komponen dasar shadcn + *.stories.tsx
 src/blocks/              blok halaman (komposisi komponen ui)
 src/config/menu.ts       definisi menu (sidebar, route, breadcrumb)
 src/pages/               satu file per menu
+src/mocks/               data simulasi (ganti dengan API)
 src/lib/utils.ts         helper cn
 src/index.css            satu-satunya sumber token tema
 AGENTS.md  CLAUDE.md     aturan kerja untuk AI

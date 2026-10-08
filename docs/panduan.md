@@ -119,23 +119,25 @@ Teks pada tombol utama harus punya rasio kontras minimal **4.5:1**. Periksa di
 Contoh nyata: putih di atas hijau `#16a34a` hanya 3.3:1 (tidak lolos), sedangkan `#15803d` 5.0:1 (lolos).
 Bila warna pilihan terlalu terang, gelapkan warnanya atau ganti `--primary-foreground` menjadi gelap.
 
-### Menambah warna semantik (mis. `success`)
+### Menambah warna semantik baru (mis. `highlight`)
+
+Sudah tersedia: `success` (hijau), `warning` (oranye), `info` (cyan), dan `destructive` (merah). Langkah di bawah untuk warna lain.
 
 1. Tambah variabel di `:root` dan `.dark`:
 
    ```css
-   --success: oklch(0.527 0.137 150.1);
-   --success-foreground: oklch(0.985 0 0);
+   --highlight: oklch(0.527 0.137 150.1);
+   --highlight-foreground: oklch(0.985 0 0);
    ```
 
 2. Daftarkan di blok `@theme inline` (di atas file yang sama):
 
    ```css
-   --color-success: var(--success);
-   --color-success-foreground: var(--success-foreground);
+   --color-highlight: var(--highlight);
+   --color-highlight-foreground: var(--highlight-foreground);
    ```
 
-3. Pakai di komponen: `bg-success text-success-foreground`.
+3. Pakai di komponen: `bg-highlight text-highlight-foreground`.
 
 ### Hal lain di tema
 
@@ -153,8 +155,8 @@ Jalankan npm run lint dan npm run build.
 ```
 
 ```
-Tambah warna semantik success (hijau) dan warning (kuning) di src/index.css
-mengikuti aturan di AGENTS.md, lalu ubah Badge status "Aktif" memakai bg-success.
+Tambah warna semantik "highlight" (ungu) di src/index.css mengikuti aturan di AGENTS.md,
+lalu pakai pada kartu "Kendaraan terlambat" di Dashboard.
 ```
 
 ## 3. Memeriksa hasil
