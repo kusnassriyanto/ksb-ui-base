@@ -23,7 +23,7 @@ Belum terpasang (pasang dengan `npx shadcn@latest add`): tabs, sidebar, breadcru
 
 ## Aturan gaya
 - Hanya token tema (`bg-primary`, `text-muted-foreground`, `border`, `rounded-lg`, ...). Dilarang hex, `bg-[...]`, dan warna palet (`bg-blue-500`). Dicek oleh `npm run lint`.
-- Token didefinisikan di `src/index.css` (`:root` dan `.dark`, format oklch). Ubah tema di sana, bukan di komponen.
+- Token didefinisikan di `src/index.css` (`:root` dan `.dark`, format oklch). Ubah tema di sana, bukan di komponen. Warna utama = `--primary`, `--primary-foreground`, `--ring` di kedua blok; kontras teks tombol minimal 4.5:1.
 - Warna semantik baru (mis. `success`): tambah variabel di `:root` dan `.dark`, daftarkan `--color-success: var(--success)` di blok `@theme inline`, lalu pakai `bg-success`.
 - Jangan edit `src/components/ui/*` kecuali memang mengubah desain dasar.
 
