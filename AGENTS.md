@@ -21,7 +21,8 @@ Blok (`@/blocks/*`):
 - `StatCard`: kartu angka ringkas (ikon `tone` + nilai + label + perubahan). `tone`: primary/warning/destructive/info/success.
 - `AppShell`: sidebar + breadcrumb + area konten, dibangun dari `MENU` di `src/config/menu.ts`.
 - `HeaderActions`: pencarian (Ctrl+K), pengganti tema terang/gelap (`useTheme` di `src/lib/use-theme.ts`), notifikasi, avatar. Dipakai di header AppShell.
-- `ListPage`: halaman daftar = judul + cari + tombol tambah + tabel. Isi `columns`, `rows`, `rowKey`, `searchText`.
+- `ListPage`: halaman daftar = judul + cari + tombol tambah + tabel. Isi `columns`, `rows`, `rowKey`, `searchText`. Opsional `onEdit`/`onDelete` menambah kolom Aksi.
+- `CrudPage`: ListPage + tambah/ubah/hapus (dialog form + konfirmasi). Isi `title`, `noun`, `columns`, `fields`, `initialRows`, `searchText`. Dipakai Pelanggan & Produk.
 
 Belum terpasang (pasang dengan `npx shadcn@latest add`): toggle-group. Komponen `form` tidak tersedia di registry; susun dari Label + Input + Select.
 
