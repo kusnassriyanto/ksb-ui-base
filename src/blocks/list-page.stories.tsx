@@ -38,3 +38,4 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 export const TanpaTombolTambah: Story = { args: { onCreate: undefined } }
+export const DenganEditHapus: Story = { args: { onEdit: () => {}, onDelete: () => {} } }

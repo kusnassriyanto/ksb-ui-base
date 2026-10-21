@@ -1,11 +1,6 @@
-import { ListPage, type Column } from '@/blocks/list-page'
-
-type Pelanggan = { id: string; nama: string; kota: string }
-
-const data: Pelanggan[] = [
-  { id: '1', nama: 'PT Maju Jaya', kota: 'Jakarta' },
-  { id: '2', nama: 'CV Sinar Terang', kota: 'Bandung' },
-]
+import { CrudPage } from '@/blocks/crud-page'
+import type { Column } from '@/blocks/list-page'
+import { PELANGGAN, type Pelanggan } from '@/mocks/pelanggan'
 
 const columns: Column<Pelanggan>[] = [
   { key: 'nama', header: 'Nama', render: (r) => r.nama },
@@ -14,14 +9,16 @@ const columns: Column<Pelanggan>[] = [
 
 export default function PelangganPage() {
   return (
-    <ListPage
+    <CrudPage
       title="Pelanggan"
+      noun="pelanggan"
       columns={columns}
-      rows={data}
-      rowKey={(r) => r.id}
+      fields={[
+        { key: 'nama', label: 'Nama' },
+        { key: 'kota', label: 'Kota' },
+      ]}
+      initialRows={PELANGGAN}
       searchText={(r) => `${r.nama} ${r.kota}`}
-      onCreate={() => {}}
-      createLabel="Tambah pelanggan"
     />
   )
 }
